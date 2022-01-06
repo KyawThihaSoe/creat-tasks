@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
+import React,{Fragment,useState} from "react";
+import Form from "./components/Form/Form";
+import Section from "./components/Section/Section";
+import "./App.css";
+const App = (props) =>{
+	const [showTasks,setshowTasks] = useState(false);
+	const [userTasks,SetuserTasks] = useState([]);
+	const adduserTasksHandler = (enteruserTasks) =>{
+		SetuserTasks((preventUserTasks)=>{
+			return [...preventUserTasks, {tasks: enteruserTasks,id: Math.random().toString()}];
+		})
+	};
+	const showCreatTasks = () =>{
+		setshowTasks(true);
+	};
+	const hideCreatTasks = (event) =>{
+		setshowTasks(false);
+	};
+	return (
+	<Fragment>
+		<header>
+        	<h1>All Tasks</h1>
+    	</header>
+		{showTasks && <Form onAddTasks={adduserTasksHandler} onHide={hideCreatTasks} />}
+		<Section users={userTasks} onShow={showCreatTasks}/>
+	</Fragment>
+	)
+};
 export default App;

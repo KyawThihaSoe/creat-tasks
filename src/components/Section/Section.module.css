@@ -1,0 +1,26 @@
+section h3 {
+    color: rgba(0, 0, 0, 0.705);
+    margin-left: 1rem;
+}
+
+section .box__container {
+    background-color: #fff;
+    box-shadow: .1rem .2rem .5rem 0rem rgb(0,0,0,0.3);
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-radius: 2rem;
+}
+
+.button__section {
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
+}
+
+.button__section img{
+    width: 14%;
+    cursor: pointer;
+}
